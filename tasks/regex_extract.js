@@ -4,9 +4,6 @@
  *
  * Copyright (c) 2014 Miren Pau
  * Licensed under the MIT license.
- *
- * 
- * Forked and updated by Philip Kahn, July 2016
  */
 
 module.exports = function (grunt) {
@@ -18,9 +15,9 @@ module.exports = function (grunt) {
 var options = this.options(
     {
         regex : "(.*|\n*)",
-	modifiers: "ig",
+        modifiers: "ig",
         matchPoints : "1",
-	includePath : true,
+        includePath : true,
         printMatches: false
     });
      
@@ -47,24 +44,24 @@ var options = this.options(
           while (match !== null) {
               countMatches++;
               var matchstring = match[0];
-	      if(options.includePath) {
-		  matchstring += filepath;
-	      }
-	      
-	      matchPointsArray.forEach(function(current) {
+              if(options.includePath) {
+                  matchstring += filepath;
+              }
+              
+              matchPointsArray.forEach(function(current) {
                   if(match[current] != undefined) {
-		      if(!options.includePath && matchstring.length === 0) {
-			  matchstring += match[current].trim();
-		      } else {
-			  matchstring += ("," + match[current].trim());			
-		      }
+                      if(!options.includePath && matchstring.length === 0) {
+                          matchstring += match[current].trim();
+                      } else {
+                          matchstring += ("," + match[current].trim());                 
+                      }
                   }
               });
               matches = matches + matchstring + "\n";
               matchstring = undefined;
               match = re.exec(filestring);
           }
-	  if(options.printMatches) grunt.log.writeln(matches);
+          if(options.printMatches) grunt.log.writeln(matches);
           return matches;
       }).join("");
         
