@@ -4,6 +4,10 @@
  *
  * Copyright (c) 2014 Miren Pau
  * Licensed under the MIT license.
+ *
+ *
+ * Forked and updated by Philip Kahn, July 2016
+ * https://github.com/tigerhawkvok/grunt-regex-extract
  */
 
 module.exports = function (grunt) {
